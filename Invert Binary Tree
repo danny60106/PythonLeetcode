@@ -1,0 +1,26 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+def doinvertTree(root):
+    if root == None:
+        return None
+
+    root.left, root.right = root.right, root.left #整棵樹的左右反轉
+    
+    #(root.left, root.right) = (root.right, root.left)
+    #右邊第一個tuple指定給左邊第一個，反之。
+    
+    #temp = root.left
+    #root.left = root.right
+    #root.right = temp
+
+    doinvertTree(root.left)                       #小樹的左邊做反轉
+    doinvertTree(root.right)                      #小樹的右邊做反轉
+    return root
+
+class Solution:
+    def invertTree(self, root: TreeNode) -> TreeNode:
+         return doinvertTree(root)
