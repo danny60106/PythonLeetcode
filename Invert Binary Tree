@@ -24,3 +24,9 @@ def doinvertTree(root):
 class Solution:
     def invertTree(self, root: TreeNode) -> TreeNode:
          return doinvertTree(root)
+        
+#class Solution2:
+#    def invertTree(self, root: TreeNode) -> TreeNode:
+#         if not root: return
+#         root.left, root.right = self.invertTree(root.right),self.invertTree(root.left)
+#         return doinvertTree(root)
