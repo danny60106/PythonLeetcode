@@ -1,0 +1,35 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+# l = [4,,5,1,9] (python 裡面的List，一般而言是陣列 array)
+
+# (4) (5) (1) (9)   
+# (4) :ListNode(val=4, next=(5))
+# (5) :ListNode(val=5, next=(1))
+# (1) :ListNode(val=1, next=(9))
+# (9) :ListNode(val=9, next=None)
+
+# (4) -> (5) -> (1) -> (9) -> None
+# (4) -> (1) -> (9) -> None
+
+# Step 1 :
+# (4)->(1)->(1)->(9) -> None
+
+# Step 2 :
+#       |--------v
+# (4)->(1) (1)->(9) -> None
+
+# 
+#       |--------v
+# (4)->(1)      (9) -> None
+
+def deleteNode(node):
+    node.val = node.next.val   #Step1:copy next node's value
+    node.next = node.next.next #Step2
+
+class Solution:
+    def deleteNode(self, node):
+        deleteNode(node)
