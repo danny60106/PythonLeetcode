@@ -26,6 +26,9 @@
 #       |--------v
 # (4)->(1)      (9) -> None
 
+#def deleteNode2(node):
+#    node.next, node.val = node.next.next, node.next.val
+
 def deleteNode(node):
     node.val = node.next.val   #Step1:copy next node's value
     node.next = node.next.next #Step2
